@@ -12,7 +12,16 @@ config_version=5
 
 config/name="JA4"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/images/icon.svg"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "green",
+"res://assets/images/": "orange",
+"res://scenes/": "purple",
+"res://scripts/": "blue"
+}
 
 [rendering]
 
