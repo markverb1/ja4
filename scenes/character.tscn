@@ -1,0 +1,118 @@
+[gd_scene load_steps=12 format=3 uid="uid://omlvvypm43lt"]
+
+[ext_resource type="Texture2D" uid="uid://cac0myojv8tqd" path="res://assets/images/guy/main.png" id="1_38gxe"]
+[ext_resource type="Texture2D" uid="uid://ckyjcroeybkly" path="res://assets/images/guy/lleg.png" id="2_5xssc"]
+[ext_resource type="Texture2D" uid="uid://tngjg3kdnnmo" path="res://assets/images/guy/rleg.png" id="3_82epa"]
+[ext_resource type="Texture2D" uid="uid://b6xdpldf7nwwa" path="res://assets/images/guy/head.png" id="4_emnm2"]
+[ext_resource type="Texture2D" uid="uid://dxalo58dtydog" path="res://assets/images/guy/rarm.png" id="5_kbr8n"]
+[ext_resource type="Script" path="res://test.gd" id="6_0hi7u"]
+[ext_resource type="Texture2D" uid="uid://d2x1haepkcahd" path="res://assets/images/Thompson_Sub-Machinegun.png" id="7_umvde"]
+[ext_resource type="Texture2D" uid="uid://b0v7xrjviych7" path="res://assets/images/guy/hand.png" id="8_ak6kg"]
+[ext_resource type="Texture2D" uid="uid://dbq0i5igxeped" path="res://assets/images/guy/larm.png" id="9_3as8x"]
+
+[sub_resource type="Animation" id="Animation_wkhm6"]
+resource_name = "walk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Main:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftLeg:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RightLeg:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Head:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0qppe"]
+_data = {
+"walk": SubResource("Animation_wkhm6")
+}
+
+[node name="Merc" type="Node2D"]
+position = Vector2(107, 27)
+
+[node name="Main" type="Sprite2D" parent="."]
+texture = ExtResource("1_38gxe")
+centered = false
+
+[node name="LeftLeg" type="Sprite2D" parent="."]
+position = Vector2(1, 18)
+texture = ExtResource("2_5xssc")
+centered = false
+
+[node name="RightLeg" type="Sprite2D" parent="."]
+position = Vector2(8, 19)
+texture = ExtResource("3_82epa")
+centered = false
+
+[node name="Head" type="Sprite2D" parent="."]
+position = Vector2(1, -15)
+texture = ExtResource("4_emnm2")
+centered = false
+
+[node name="RightArm" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(14, 2)
+texture = ExtResource("5_kbr8n")
+offset = Vector2(0, 6)
+
+[node name="Weapon" type="Node2D" parent="."]
+position = Vector2(2, 2)
+script = ExtResource("6_0hi7u")
+
+[node name="Gun" type="Sprite2D" parent="Weapon"]
+position = Vector2(14, 0)
+texture = ExtResource("7_umvde")
+offset = Vector2(0.5, 0)
+
+[node name="RightHand" type="Sprite2D" parent="Weapon"]
+position = Vector2(19, 1)
+texture = ExtResource("8_ak6kg")
+
+[node name="LeftArm" type="Sprite2D" parent="Weapon"]
+rotation = -1.57079
+texture = ExtResource("9_3as8x")
+offset = Vector2(-2, 6)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0qppe")
+}
