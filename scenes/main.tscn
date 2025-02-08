@@ -70,6 +70,6 @@ anchor_mode = 0
 script = ExtResource("5_socsq")
 
 [node name="Merc" parent="." instance=ExtResource("7_gngct")]
-position = Vector2(224, 288)
+position = Vector2(240, 288)
 
 [connection signal="area_entered" from="Cursor/Area2D" to="Cursor" method="_on_area_entered"]
