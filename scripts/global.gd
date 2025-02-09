@@ -4,8 +4,16 @@ var rng = RandomNumberGenerator.new()
 var mercs: Array = []
 var merc = preload("res://scripts/mercenary.gd")
 var viewport = preload("res://scripts/viewport.gd")
+var selected_merc:
+	get:
+		return selected_merc
+	set(val):
+		selected_merc = val
+		merc_selected.emit()
 
+@warning_ignore("unused_signal")
 signal message_added(message)
+signal merc_selected(merc)
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
@@ -24,12 +32,7 @@ func find_merc(merc_name:String, short:bool=true):
 func _ready() -> void:
 	#print(create_merc("Guy", "Guyase Verb").long_name)
 	#print(find_merc("Guy").long_name)
-	#create_merc("Guy", "Guyase Verb")
-	wait(1)
-	
-	global.message_added.emit("fuck")
-	if create_merc("Guy", "Guyase Verb").long_name == find_merc("Guy").long_name:
-		global.message_added.emit("merc insertion sanity check passed")
+	create_merc("Guy", "Guyase Verb")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

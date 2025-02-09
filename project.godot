@@ -31,6 +31,9 @@ DSP/dsp_buffer_count=4
 config/name="JA4"
 run/main_scene="res://scenes/viewport.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/bg_color=Color(0.184314, 0.141176, 0.12549, 1)
+boot_splash/image="res://assets/images/ui/logo.png"
+boot_splash/fullsize=false
 config/icon="res://assets/images/icon.svg"
 
 [autoload]

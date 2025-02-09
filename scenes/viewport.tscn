@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bee30153v4i4"]
+[gd_scene load_steps=10 format=3 uid="uid://bee30153v4i4"]
 
 [ext_resource type="PackedScene" uid="uid://ddyqwjkg0fa5p" path="res://scenes/main.tscn" id="1_054df"]
 [ext_resource type="Script" path="res://scripts/viewport.gd" id="1_fwiqo"]
 [ext_resource type="FontFile" uid="uid://c80sumtt3tul6" path="res://assets/fonts/corbel.TTF" id="3_jwgdj"]
 [ext_resource type="FontFile" uid="uid://dh20ui1l5c2tb" path="res://assets/fonts/corbel_bold.TTF" id="4_v54aq"]
+[ext_resource type="FontFile" uid="uid://bnpxgupj4wsfo" path="res://assets/fonts/Hack-Regular.ttf" id="5_f61q0"]
 
 [sub_resource type="FontVariation" id="FontVariation_yc2cm"]
 base_font = ExtResource("3_jwgdj")
@@ -11,6 +12,13 @@ base_font = ExtResource("3_jwgdj")
 [sub_resource type="LabelSettings" id="LabelSettings_c3ofi"]
 font = ExtResource("4_v54aq")
 font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_yfslq"]
+font = ExtResource("4_v54aq")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_qy486"]
+font = ExtResource("3_jwgdj")
 
 [node name="Viewport" type="Control"]
 layout_mode = 3
@@ -61,3 +69,49 @@ grow_vertical = 2
 bbcode_enabled = true
 text = "[b]Message log...[/b]"
 scroll_following = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -122.0
+offset_right = 102.0
+offset_bottom = -4.0
+grow_vertical = 0
+
+[node name="ShortName" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 45.0
+offset_bottom = 28.0
+text = "Test"
+label_settings = SubResource("LabelSettings_yfslq")
+
+[node name="LongName" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 29.0
+offset_right = 86.0
+offset_bottom = 54.0
+text = "Test Test"
+label_settings = SubResource("LabelSettings_qy486")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 112.0
+offset_top = 3.0
+offset_right = 283.0
+offset_bottom = 114.0
+theme_override_fonts/normal_font = ExtResource("5_f61q0")
+bbcode_enabled = true
+text = "Agi  91  Lvl  1
+Dex  61  Mrk  61
+Str  68  Mec  68
+Ldr  38  Exp  38
+Wis  71  Med  71"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

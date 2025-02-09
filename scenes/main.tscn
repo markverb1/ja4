@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddyqwjkg0fa5p"]
+[gd_scene load_steps=9 format=3 uid="uid://ddyqwjkg0fa5p"]
 
 [ext_resource type="PackedScene" uid="uid://c3yf73c8f2bu6" path="res://scenes/maps/map_test.tscn" id="1_jl6ia"]
 [ext_resource type="Texture2D" uid="uid://dt00471ww6u0b" path="res://assets/images/cursor.png" id="2_fexyt"]
 [ext_resource type="Texture2D" uid="uid://c7velnf54lige" path="res://assets/images/actors/door/door.png" id="2_j6rpl"]
 [ext_resource type="Script" path="res://scripts/cursor.gd" id="3_tjb8c"]
-[ext_resource type="Texture2D" uid="uid://d0821bvp1sovl" path="res://assets/images/actors/guy.png" id="4_eyvop"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="5_socsq"]
 [ext_resource type="PackedScene" uid="uid://omlvvypm43lt" path="res://scenes/character.tscn" id="7_gngct"]
 
@@ -13,9 +12,6 @@ polygon = PackedVector2Array(0, 0, 32, 0, 32, 32, 0, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lre1b"]
 size = Vector2(26, 26)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a52je"]
-size = Vector2(32, 32)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -51,17 +47,6 @@ script = ExtResource("3_tjb8c")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor/Area2D"]
 position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_lre1b")
-
-[node name="Character" type="Sprite2D" parent="."]
-position = Vector2(256, 288)
-texture = ExtResource("4_eyvop")
-offset = Vector2(16, 8)
-
-[node name="Area2D" type="Area2D" parent="Character"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Character/Area2D"]
-position = Vector2(16, 16)
-shape = SubResource("RectangleShape2D_a52je")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
