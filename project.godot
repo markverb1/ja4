@@ -39,6 +39,7 @@ config/icon="res://assets/images/icon.svg"
 [autoload]
 
 global="*res://scripts/global.gd"
+mercservice="*res://scripts/merc_service.gd"
 
 [display]
 

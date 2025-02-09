@@ -14,13 +14,13 @@ func play_sound(sound: AudioStreamWAV, vol: float = 0):
 	player.play(0)
 
 func merc_selected():
-	$Panel/ShortName.text = global.selected_merc.short_name
-	$Panel/LongName.text = global.selected_merc.long_name
+	$Panel/ShortName.text = mercservice.selected_merc.short_name
+	$Panel/LongName.text = mercservice.selected_merc.long_name
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	global.message_added.connect(add_message)
-	global.merc_selected.connect(merc_selected)
+	mercservice.merc_selected.connect(merc_selected)
 	global.message_added.emit("Initialized...")
 
 

@@ -1,0 +1,207 @@
+[gd_scene load_steps=3 format=3 uid="uid://taexwce4132f"]
+
+[ext_resource type="FontFile" uid="uid://bhl13k724n2uj" path="res://assets/fonts/Hack-Bold.ttf" id="1_e11dc"]
+[ext_resource type="Script" path="res://scenes/developer/merc_editor.gd" id="1_w8hx6"]
+
+[node name="MercEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w8hx6")
+metadata/_edit_lock_ = true
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 181.0
+offset_right = 288.0
+offset_bottom = 206.0
+text = "/home/markverb1/ja4/data/mercs"
+placeholder_text = "file path"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 181.0
+offset_right = 410.0
+offset_bottom = 206.0
+text = "save merc to file"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 181.0
+offset_right = 528.0
+offset_bottom = 206.0
+text = "output json data"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 217.0
+offset_bottom = 170.0
+
+[node name="LineEdit" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 21.0
+offset_right = 203.0
+offset_bottom = 46.0
+text = "Ivan Dolvich"
+
+[node name="LineEdit2" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 132.0
+offset_right = 203.0
+offset_bottom = 157.0
+text = "Ivan"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 113.0
+offset_right = 153.0
+offset_bottom = 130.0
+text = "short name & filepath:"
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 155.0
+offset_bottom = 21.0
+text = "long name:"
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 222.0
+offset_top = 6.0
+offset_right = 547.0
+offset_bottom = 169.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel2"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = 316.0
+offset_bottom = 157.0
+theme_override_fonts/normal_font = ExtResource("1_e11dc")
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "Agi         Lvl
+Dex         Mrk
+Str         Mec
+Ldr         Exp
+Wis         Med
+Hel "
+
+[node name="stat" type="Control" parent="Panel2"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="agility" type="SpinBox" parent="Panel2/stat"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 1.0
+offset_right = 131.0
+offset_bottom = 26.0
+value = 100.0
+
+[node name="dexterity" type="SpinBox" parent="Panel2/stat"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 25.0
+offset_right = 131.0
+offset_bottom = 50.0
+value = 100.0
+
+[node name="strength" type="SpinBox" parent="Panel2/stat"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 49.0
+offset_right = 131.0
+offset_bottom = 74.0
+value = 100.0
+
+[node name="leadership" type="SpinBox" parent="Panel2/stat"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 74.0
+offset_right = 131.0
+offset_bottom = 99.0
+value = 100.0
+
+[node name="wisdom" type="SpinBox" parent="Panel2/stat"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 98.0
+offset_right = 130.0
+offset_bottom = 123.0
+value = 100.0
+
+[node name="level" type="SpinBox" parent="Panel2/stat"]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 3.0
+offset_right = 265.0
+offset_bottom = 28.0
+value = 100.0
+
+[node name="marksmanship" type="SpinBox" parent="Panel2/stat"]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 27.0
+offset_right = 265.0
+offset_bottom = 52.0
+value = 100.0
+
+[node name="mechanics" type="SpinBox" parent="Panel2/stat"]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 51.0
+offset_right = 265.0
+offset_bottom = 76.0
+value = 100.0
+
+[node name="explosives" type="SpinBox" parent="Panel2/stat"]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 76.0
+offset_right = 265.0
+offset_bottom = 101.0
+value = 100.0
+
+[node name="medical" type="SpinBox" parent="Panel2/stat"]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 100.0
+offset_right = 264.0
+offset_bottom = 125.0
+value = 100.0
+
+[node name="health" type="SpinBox" parent="Panel2/stat"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 124.0
+offset_right = 132.0
+offset_bottom = 149.0
+value = 100.0
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 553.0
+offset_top = 5.0
+offset_right = 916.0
+offset_bottom = 196.0
+placeholder_text = "json data goes here"
+editable = false
+wrap_mode = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

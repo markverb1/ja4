@@ -17,6 +17,7 @@ var marksmanship: int = 50
 var mechanics: int = 20
 var explosives: int = 20
 var medical: int = 20
+var health: int = 80
 
 var big_slots = []
 var small_slots = []
@@ -26,4 +27,3 @@ func _init(name_short:String="Verb", name_long:String="Guyase Verb") -> void:
 	id = max_id
 	short_name = name_short
 	long_name = name_long
-	

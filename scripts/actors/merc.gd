@@ -1,13 +1,22 @@
 extends Node2D
 
 @export var merc_short_name: String = "Guy"
+var me: Mercenary
 @onready var wep = $Weapon
 var mpos: Vector2 = Vector2.ZERO
 var test:int=0
+var selected_merc:
+	get:
+		return selected_merc
+	set(val):
+		selected_merc = val
+		merc_selected.emit()
+
+signal merc_selected(merc)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	me = mercservice.find_merc(merc_short_name)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
