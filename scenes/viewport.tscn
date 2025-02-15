@@ -123,3 +123,6 @@ Ldr  38  Exp  38
 Wis  71  Med  71"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://source/fmod/Build/Desktop/GUI.bank", "res://source/fmod/Build/Desktop/Music.bank", "res://source/fmod/Build/Desktop/SFX.bank"]
