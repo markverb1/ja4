@@ -16,3 +16,6 @@ mono_crash.*.json
 
 # Project-specific
 .working/
+
+# VSCode-specific
+.vscode/
