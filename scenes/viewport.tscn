@@ -27,7 +27,7 @@ font_size = 24
 [sub_resource type="LabelSettings" id="LabelSettings_qy486"]
 font = ExtResource("3_jwgdj")
 
-[node name="Viewport" type="Control"]
+[node name="Viewport" type="Control" node_paths=PackedStringArray("messages")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,6 +35,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fwiqo")
+messages = NodePath("Messages")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 1
@@ -64,7 +65,7 @@ theme_override_fonts/font = SubResource("FontVariation_yc2cm")
 text = "FPS: 144"
 label_settings = SubResource("LabelSettings_c3ofi")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Messages" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -122,7 +123,11 @@ Str  68  Mec  68
 Ldr  38  Exp  38
 Wis  71  Med  71"
 
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://source/fmod/Build/Desktop/Master.strings.bank", "res://source/fmod/Build/Desktop/Master.bank", "res://source/fmod/Build/Desktop/GUI.bank"]
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
-bank_paths = ["res://source/fmod/Build/Desktop/GUI.bank", "res://source/fmod/Build/Desktop/Music.bank", "res://source/fmod/Build/Desktop/SFX.bank"]
+[node name="FmodEventEmitter2D" type="FmodEventEmitter2D" parent="."]
+event_name = "event:/GUI/Notification"
+event_guid = "{0c9c9dfe-cb14-43e0-be63-d9d4c237c952}"

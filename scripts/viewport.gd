@@ -1,17 +1,23 @@
 extends Control
 
-@onready var messages = $RichTextLabel
-@onready var player = $AudioStreamPlayer
+@export var messages: RichTextLabel
+#@onready var player = $AudioStreamPlayer
+@onready var emitter: FmodEventEmitter2D = $FmodEventEmitter2D
+var event
 
+func play_event(event_name: String, vol: float=1) -> void:
+	emitter.event_guid = FmodServer.get_event_guid("event:/" + event_name.trim_prefix("/").trim_suffix("/"))
+	emitter.play()
+	
 func add_message(message: String):
 	messages.newline()
 	messages.append_text(message)
-	play_sound(load("res://assets/audio/notif.wav"),-5)
+	play_event("GUI/Notification", 1)
 	
-func play_sound(sound: AudioStreamWAV, vol: float = 0):
-	player.stream = sound
-	player.volume_db = vol
-	player.play(0)
+#func play_sound(sound: AudioStreamWAV, vol: float = 0):
+	#player.stream = sound
+	#player.volume_db = vol
+	#player.play(0)
 
 func merc_selected():
 	$Panel/ShortName.text = mercservice.selected_merc.short_name

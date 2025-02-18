@@ -3,10 +3,8 @@ extends Node
 var rng = RandomNumberGenerator.new()
 var viewport = preload("res://scripts/viewport.gd")
 
-
 @warning_ignore("unused_signal")
 signal message_added(message)
-
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout

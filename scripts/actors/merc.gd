@@ -29,6 +29,7 @@ func _process(_delta: float) -> void:
 		else:
 			scale = Vector2(1,1)
 		wep.look_at(mpos)
+		$Weapon/Hand.rotation = 0
 
 func _input(event):
 	# Mouse in viewport coordinates.

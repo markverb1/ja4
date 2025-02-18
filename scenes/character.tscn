@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://omlvvypm43lt"]
+[gd_scene load_steps=21 format=3 uid="uid://omlvvypm43lt"]
 
 [ext_resource type="Script" path="res://scripts/actors/merc.gd" id="1_6a68i"]
 [ext_resource type="Texture2D" uid="uid://cac0myojv8tqd" path="res://assets/images/guy/main.png" id="1_38gxe"]
 [ext_resource type="Texture2D" uid="uid://ckyjcroeybkly" path="res://assets/images/guy/lleg.png" id="2_5xssc"]
+[ext_resource type="Texture2D" uid="uid://bm0ythdgtn24l" path="res://assets/images/clothes/iconic_hoodie/main.png" id="3_2ju2q"]
 [ext_resource type="Texture2D" uid="uid://tngjg3kdnnmo" path="res://assets/images/guy/rleg.png" id="3_82epa"]
 [ext_resource type="Texture2D" uid="uid://b6xdpldf7nwwa" path="res://assets/images/guy/head.png" id="4_emnm2"]
 [ext_resource type="Texture2D" uid="uid://bniy02meyfwr7" path="res://assets/images/guy/joint.png" id="5_3phow"]
@@ -10,6 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://d2x1haepkcahd" path="res://assets/images/Thompson_Sub-Machinegun.png" id="7_umvde"]
 [ext_resource type="Texture2D" uid="uid://b0v7xrjviych7" path="res://assets/images/guy/hand.png" id="8_ak6kg"]
 [ext_resource type="Texture2D" uid="uid://dbq0i5igxeped" path="res://assets/images/guy/larm.png" id="9_3as8x"]
+[ext_resource type="Texture2D" uid="uid://bywt8rop8231s" path="res://assets/images/clothes/iconic_hoodie/rarm.png" id="9_hjfov"]
+[ext_resource type="Texture2D" uid="uid://8ekesspxd1ov" path="res://assets/images/clothes/iconic_hoodie/joint.png" id="10_3c8pd"]
+[ext_resource type="Texture2D" uid="uid://3j8n0c6ycgwa" path="res://assets/images/clothes/iconic_hoodie/larm.png" id="10_x3oj5"]
+[ext_resource type="Texture2D" uid="uid://b64x3krrvqx8e" path="res://assets/images/clothes/white_gloves/hand.png" id="12_q5o6p"]
 
 [sub_resource type="Animation" id="Animation_hjvx5"]
 length = 0.001
@@ -26,6 +31,8 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1cvj"]
 size = Vector2(32, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w4euh"]
 
 [node name="Merc" type="Node2D"]
 position = Vector2(0, 12)
@@ -47,6 +54,9 @@ shape = SubResource("RectangleShape2D_q1cvj")
 position = Vector2(0, 13)
 texture = ExtResource("1_38gxe")
 
+[node name="Shirt" type="Sprite2D" parent="Main"]
+texture = ExtResource("3_2ju2q")
+
 [node name="Head" type="Sprite2D" parent="."]
 position = Vector2(1, -4)
 texture = ExtResource("4_emnm2")
@@ -62,15 +72,30 @@ texture = ExtResource("3_82epa")
 
 [node name="Unarmed" type="Node2D" parent="."]
 visible = false
-position = Vector2(17, -4)
+position = Vector2(1, -4)
 
 [node name="UnarmedRight" type="Sprite2D" parent="Unarmed"]
-position = Vector2(6, 16)
+position = Vector2(4, 10)
 texture = ExtResource("5_kbr8n")
+offset = Vector2(2, 6)
+
+[node name="Gloves" type="Sprite2D" parent="Unarmed/UnarmedRight"]
+position = Vector2(2, 6)
+texture = ExtResource("12_q5o6p")
+offset = Vector2(0, 6)
+
+[node name="Shirt" type="Sprite2D" parent="Unarmed/UnarmedRight"]
+position = Vector2(2, 6)
+texture = ExtResource("9_hjfov")
 
 [node name="Joint2" type="Sprite2D" parent="Unarmed"]
 position = Vector2(4, 9)
+scale = Vector2(-1, 1)
 texture = ExtResource("5_3phow")
+offset = Vector2(0, 0.5)
+
+[node name="Shirt" type="Sprite2D" parent="Unarmed/Joint2"]
+texture = ExtResource("10_3c8pd")
 offset = Vector2(0, 0.5)
 
 [node name="UnarmedLeft" type="Sprite2D" parent="Unarmed"]
@@ -79,9 +104,21 @@ rotation = -0.000209214
 texture = ExtResource("9_3as8x")
 offset = Vector2(-2, 6)
 
+[node name="Shirt" type="Sprite2D" parent="Unarmed/UnarmedLeft"]
+texture = ExtResource("10_x3oj5")
+offset = Vector2(-2, 6)
+
+[node name="Gloves" type="Sprite2D" parent="Unarmed/UnarmedLeft"]
+texture = ExtResource("12_q5o6p")
+offset = Vector2(-2, 12)
+
 [node name="Joint" type="Sprite2D" parent="Unarmed"]
 position = Vector2(-6, 9)
 texture = ExtResource("5_3phow")
+offset = Vector2(0, 0.5)
+
+[node name="Shirt" type="Sprite2D" parent="Unarmed/Joint"]
+texture = ExtResource("10_3c8pd")
 offset = Vector2(0, 0.5)
 
 [node name="Weapon" type="Node2D" parent="."]
@@ -98,14 +135,29 @@ use_parent_material = true
 texture = ExtResource("5_3phow")
 offset = Vector2(0, 0.5)
 
+[node name="Shirt" type="Sprite2D" parent="Weapon/Joint"]
+texture = ExtResource("10_3c8pd")
+offset = Vector2(0, 0.5)
+
 [node name="LeftArm" type="Sprite2D" parent="Weapon"]
-use_parent_material = true
+material = SubResource("ShaderMaterial_w4euh")
 rotation = -1.57079
 texture = ExtResource("9_3as8x")
 offset = Vector2(-2, 6)
+
+[node name="Shirt" type="Sprite2D" parent="Weapon/LeftArm"]
+texture = ExtResource("10_x3oj5")
+offset = Vector2(-2, 6)
+
+[node name="Gloves" type="Sprite2D" parent="Weapon/LeftArm"]
+texture = ExtResource("12_q5o6p")
+offset = Vector2(-2, 12)
 
 [node name="Hand" type="Sprite2D" parent="Weapon"]
 use_parent_material = true
 position = Vector2(17, 0)
 rotation = -1.57079
 texture = ExtResource("8_ak6kg")
+
+[node name="Gloves" type="Sprite2D" parent="Weapon/Hand"]
+texture = ExtResource("12_q5o6p")
