@@ -122,6 +122,7 @@ texture = ExtResource("10_3c8pd")
 offset = Vector2(0, 0.5)
 
 [node name="Weapon" type="Node2D" parent="."]
+visible = false
 position = Vector2(-5, 5)
 
 [node name="Gun" type="Sprite2D" parent="Weapon"]
