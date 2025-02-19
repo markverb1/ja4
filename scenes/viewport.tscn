@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bee30153v4i4"]
+[gd_scene load_steps=13 format=3 uid="uid://bee30153v4i4"]
 
 [ext_resource type="PackedScene" uid="uid://ddyqwjkg0fa5p" path="res://scenes/main.tscn" id="1_054df"]
 [ext_resource type="Script" path="res://scripts/viewport.gd" id="1_fwiqo"]
 [ext_resource type="FontFile" uid="uid://c80sumtt3tul6" path="res://assets/fonts/corbel.TTF" id="3_jwgdj"]
 [ext_resource type="FontFile" uid="uid://dh20ui1l5c2tb" path="res://assets/fonts/corbel_bold.TTF" id="4_v54aq"]
 [ext_resource type="FontFile" uid="uid://bnpxgupj4wsfo" path="res://assets/fonts/Hack-Regular.ttf" id="5_f61q0"]
+[ext_resource type="Script" path="res://scripts/ui/camera_speed.gd" id="6_2ab2f"]
 
 [sub_resource type="FontVariation" id="FontVariation_yc2cm"]
 base_font = ExtResource("3_jwgdj")
@@ -26,6 +27,9 @@ font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_qy486"]
 font = ExtResource("3_jwgdj")
+
+[sub_resource type="LabelSettings" id="LabelSettings_wpqbe"]
+font = ExtResource("5_f61q0")
 
 [node name="Viewport" type="Control" node_paths=PackedStringArray("messages")]
 layout_mode = 3
@@ -123,11 +127,65 @@ Str  68  Mec  68
 Ldr  38  Exp  38
 Wis  71  Med  71"
 
+[node name="Options" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -180.0
+offset_right = 270.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CameraSpeed" type="Control" parent="Options"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_2ab2f")
+
+[node name="Slider" type="HSlider" parent="Options/CameraSpeed"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 333.0
+offset_right = 434.0
+offset_bottom = 349.0
+min_value = 1.0
+max_value = 10.0
+step = 0.25
+value = 2.0
+tick_count = 40
+ticks_on_borders = true
+
+[node name="Value" type="Label" parent="Options/CameraSpeed"]
+layout_mode = 0
+offset_left = -143.0
+offset_top = 334.0
+offset_right = 57.0
+offset_bottom = 353.0
+text = "3.00"
+label_settings = SubResource("LabelSettings_wpqbe")
+horizontal_alignment = 2
+
+[node name="Label" type="Label" parent="Options/CameraSpeed"]
+layout_mode = 0
+offset_left = 439.0
+offset_top = 336.0
+offset_right = 536.0
+offset_bottom = 353.0
+text = "Camera Speed"
+
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
-bank_paths = ["res://source/fmod/Build/Desktop/Master.strings.bank", "res://source/fmod/Build/Desktop/Master.bank", "res://source/fmod/Build/Desktop/GUI.bank"]
+bank_paths = ["res://source/fmod/Build/Desktop/Master.strings.bank", "res://source/fmod/Build/Desktop/Master.bank", "res://source/fmod/Build/Desktop/GUI.bank", "res://source/fmod/Build/Desktop/Music.bank", "res://source/fmod/Build/Desktop/SFX.bank"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="FmodEventEmitter2D" type="FmodEventEmitter2D" parent="."]
-event_name = "event:/GUI/Notification"
-event_guid = "{0c9c9dfe-cb14-43e0-be63-d9d4c237c952}"
+[node name="Music" type="FmodEventEmitter2D" parent="."]
+event_name = "event:/Music/JA2"
+event_guid = "{55cc0bec-02d8-41d7-bc91-19bfc2870740}"
+autoplay = true
+
+[connection signal="value_changed" from="Options/CameraSpeed/Slider" to="Options/CameraSpeed" method="_on_slider_value_changed"]

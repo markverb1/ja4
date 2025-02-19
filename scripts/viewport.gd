@@ -2,13 +2,18 @@ extends Control
 
 @export var messages: RichTextLabel
 #@onready var player = $AudioStreamPlayer
-@onready var emitter: FmodEventEmitter2D = $FmodEventEmitter2D
+@onready var music_emitter: FmodEventEmitter2D = $Music
 var event
 
 func play_event(event_name: String, vol: float=1) -> void:
+	var emitter: FmodEventEmitter2D = FmodEventEmitter2D.new()
 	emitter.event_guid = FmodServer.get_event_guid("event:/" + event_name.trim_prefix("/").trim_suffix("/"))
+	emitter.volume = vol
+	add_child(emitter)
 	emitter.play()
-	
+	#await emitter.stopped
+	#emitter.queue_free()
+
 func add_message(message: String):
 	messages.newline()
 	messages.append_text(message)
@@ -28,6 +33,7 @@ func _ready() -> void:
 	global.message_added.connect(add_message)
 	mercservice.merc_selected.connect(merc_selected)
 	global.message_added.emit("Initialized...")
+	#emitter.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

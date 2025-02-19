@@ -21,6 +21,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	mpos = get_global_mouse_position()
 	test += 1
 	if (test % 2 == 0):
 		var rotdeg = int(rad_to_deg(global_position.angle_to_point(mpos)))
@@ -30,11 +31,3 @@ func _process(_delta: float) -> void:
 			scale = Vector2(1,1)
 		wep.look_at(mpos)
 		$Weapon/Hand.rotation = 0
-
-func _input(event):
-	# Mouse in viewport coordinates.
-	if event is InputEventMouseMotion:
-		mpos = event.position
-
-	# Print the size of the viewport.
-	#print("Viewport Resolution is: ", get_viewport().get_visible_rect().size)

@@ -52,7 +52,9 @@ shape = SubResource("RectangleShape2D_lre1b")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+position_smoothing_speed = 20.0
 script = ExtResource("5_socsq")
+camera_speed = 3.0
 
 [node name="FmodListener2D" type="FmodListener2D" parent="Camera2D"]
 
