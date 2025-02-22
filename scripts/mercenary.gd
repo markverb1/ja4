@@ -22,7 +22,7 @@ var health: int = 80
 var big_slots = []
 var small_slots = []
 
-func _init(name_short:String="Verb", name_long:String="Guyase Verb") -> void:
+func _init(name_short: String = "Verb", name_long: String = "Guyase Verb") -> void:
 	max_id += 1
 	id = max_id
 	short_name = name_short

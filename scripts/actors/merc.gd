@@ -4,7 +4,7 @@ extends Node2D
 var me: Mercenary
 @onready var wep = $Weapon
 var mpos: Vector2 = Vector2.ZERO
-var test:int=0
+var test: int = 0
 var selected_merc:
 	get:
 		return selected_merc
@@ -26,8 +26,8 @@ func _process(_delta: float) -> void:
 	if (test % 2 == 0):
 		var rotdeg = int(rad_to_deg(global_position.angle_to_point(mpos)))
 		if rotdeg < -90 or rotdeg > 90:
-			scale = Vector2(-1,1)
+			scale = Vector2(-1, 1)
 		else:
-			scale = Vector2(1,1)
+			scale = Vector2(1, 1)
 		wep.look_at(mpos)
 		$Weapon/Hand.rotation = 0

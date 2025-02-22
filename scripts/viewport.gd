@@ -5,7 +5,7 @@ extends Control
 @onready var music_emitter: FmodEventEmitter2D = $Music
 var event
 
-func play_event(event_name: String, vol: float=1) -> void:
+func play_event(event_name: String, vol: float = 1) -> void:
 	var emitter: FmodEventEmitter2D = FmodEventEmitter2D.new()
 	emitter.event_guid = FmodServer.get_event_guid("event:/" + event_name.trim_prefix("/").trim_suffix("/"))
 	emitter.volume = vol
