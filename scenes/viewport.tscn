@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://bee30153v4i4"]
 
 [ext_resource type="PackedScene" uid="uid://ddyqwjkg0fa5p" path="res://scenes/main.tscn" id="1_054df"]
-[ext_resource type="Script" path="res://scripts/viewport.gd" id="1_fwiqo"]
+[ext_resource type="Script" uid="uid://5rk8ht20q4ok" path="res://scripts/viewport.gd" id="1_fwiqo"]
 [ext_resource type="FontFile" uid="uid://c80sumtt3tul6" path="res://assets/fonts/corbel.TTF" id="3_jwgdj"]
 [ext_resource type="FontFile" uid="uid://dh20ui1l5c2tb" path="res://assets/fonts/corbel_bold.TTF" id="4_v54aq"]
 [ext_resource type="FontFile" uid="uid://bnpxgupj4wsfo" path="res://assets/fonts/Hack-Regular.ttf" id="5_f61q0"]
-[ext_resource type="Script" path="res://scripts/ui/camera_speed.gd" id="6_2ab2f"]
+[ext_resource type="Script" uid="uid://cl2jnnb3fcmjl" path="res://scripts/ui/camera_speed.gd" id="6_2ab2f"]
 
 [sub_resource type="FontVariation" id="FontVariation_yc2cm"]
 base_font = ExtResource("3_jwgdj")

@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://ddyqwjkg0fa5p"]
 
-[ext_resource type="Script" path="res://scripts/map.gd" id="1_4gaol"]
+[ext_resource type="Script" uid="uid://c2ywfoyxrdb4s" path="res://scripts/map.gd" id="1_4gaol"]
 [ext_resource type="PackedScene" uid="uid://c3yf73c8f2bu6" path="res://scenes/maps/map_test.tscn" id="1_jl6ia"]
 [ext_resource type="Texture2D" uid="uid://dt00471ww6u0b" path="res://assets/images/cursor.png" id="2_fexyt"]
 [ext_resource type="Texture2D" uid="uid://c7velnf54lige" path="res://assets/images/actors/door/door.png" id="2_j6rpl"]
-[ext_resource type="Script" path="res://scripts/cursor.gd" id="3_tjb8c"]
-[ext_resource type="Script" path="res://scripts/camera_2d.gd" id="5_socsq"]
+[ext_resource type="Script" uid="uid://c26ymmd507hc7" path="res://scripts/cursor.gd" id="3_tjb8c"]
+[ext_resource type="Script" uid="uid://c5gxl3uq0x64e" path="res://scripts/camera_2d.gd" id="5_socsq"]
 [ext_resource type="PackedScene" uid="uid://omlvvypm43lt" path="res://scenes/character.tscn" id="7_gngct"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_57ps7"]

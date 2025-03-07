@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://taexwce4132f"]
 
 [ext_resource type="FontFile" uid="uid://bhl13k724n2uj" path="res://assets/fonts/Hack-Bold.ttf" id="1_e11dc"]
-[ext_resource type="Script" path="res://scenes/developer/merc_editor.gd" id="1_w8hx6"]
+[ext_resource type="Script" uid="uid://dl4k67r7g27iq" path="res://scenes/developer/merc_editor.gd" id="1_w8hx6"]
 
 [node name="MercEditor" type="Control"]
 layout_mode = 3
