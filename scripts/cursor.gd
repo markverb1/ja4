@@ -1,5 +1,7 @@
 extends Sprite2D
 
+signal cursor_moved(to: Vector2i)
+var lpos: Vector2 = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -8,8 +10,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	position.x = snapped(get_global_mouse_position().x - 16, 32)
-	position.y = snapped(get_global_mouse_position().y - 16, 32)
+	pass
 
 
 @warning_ignore("unused_parameter")
@@ -24,3 +25,9 @@ func _input(event: InputEvent) -> void:
 				var clicked = $Area2D.get_overlapping_areas()[0].get_parent()
 				if "merc_short_name" in clicked:
 					mercservice.selected_merc = mercservice.find_merc(clicked.merc_short_name)
+	if event is InputEventMouseMotion:
+		position.x = snapped(get_global_mouse_position().x - 16, 32)
+		position.y = snapped(get_global_mouse_position().y - 16, 32)
+		if lpos != position:
+			cursor_moved.emit(position/32)
+		lpos = position

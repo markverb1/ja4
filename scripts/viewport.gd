@@ -40,6 +40,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	$Label.text = "FPS: " + str(int(Engine.get_frames_per_second()))
 
-
 func _show_mercs_pressed() -> void:
 	print(global.mercs)
+
+func _on_opt_button_toggled(toggled_on: bool) -> void:
+	$Options.visible = toggled_on

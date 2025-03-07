@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddyqwjkg0fa5p"]
+[gd_scene load_steps=12 format=3 uid="uid://ddyqwjkg0fa5p"]
 
+[ext_resource type="Script" path="res://scripts/map.gd" id="1_4gaol"]
 [ext_resource type="PackedScene" uid="uid://c3yf73c8f2bu6" path="res://scenes/maps/map_test.tscn" id="1_jl6ia"]
 [ext_resource type="Texture2D" uid="uid://dt00471ww6u0b" path="res://assets/images/cursor.png" id="2_fexyt"]
 [ext_resource type="Texture2D" uid="uid://c7velnf54lige" path="res://assets/images/actors/door/door.png" id="2_j6rpl"]
@@ -10,16 +11,27 @@
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_57ps7"]
 polygon = PackedVector2Array(0, 0, 32, 0, 32, 32, 0, 32)
 
+[sub_resource type="Gradient" id="Gradient_0md6t"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.137306, 0.165803)
+colors = PackedColorArray(1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_153nt"]
+gradient = SubResource("Gradient_0md6t")
+width = 512
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lre1b"]
 size = Vector2(26, 26)
 
-[node name="Main" type="Control"]
+[node name="Main" type="Control" node_paths=PackedStringArray("current_map")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_4gaol")
+current_map = NodePath("MapTest")
 
 [node name="MapTest" parent="." instance=ExtResource("1_jl6ia")]
 
@@ -33,6 +45,11 @@ hframes = 2
 modulate = Color(1, 1, 1, 0)
 occluder = SubResource("OccluderPolygon2D_57ps7")
 sdf_collision = false
+
+[node name="Line2D" type="Line2D" parent="."]
+light_mask = 0
+texture = SubResource("GradientTexture1D_153nt")
+texture_mode = 1
 
 [node name="Cursor" type="Sprite2D" parent="."]
 visible = false
@@ -52,6 +69,10 @@ shape = SubResource("RectangleShape2D_lre1b")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+limit_left = -12800
+limit_top = -12800
+limit_right = 12800
+limit_bottom = 12800
 position_smoothing_speed = 20.0
 script = ExtResource("5_socsq")
 camera_speed = 3.0
@@ -61,4 +82,5 @@ camera_speed = 3.0
 [node name="Merc" parent="." instance=ExtResource("7_gngct")]
 position = Vector2(240, 288)
 
+[connection signal="cursor_moved" from="Cursor" to="." method="_on_cursor_moved"]
 [connection signal="area_entered" from="Cursor/Area2D" to="Cursor" method="_on_area_entered"]
