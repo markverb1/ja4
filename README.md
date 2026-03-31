@@ -1,1 +1,1 @@
-[![Discord](https://img.shields.io/discord/990326151987724378?logo=discord&logoColor=white&color=5865F2)](https://discord.gg/s555fTCd47) [![Made with Godot](https://img.shields.io/badge/made_with-godot-478CBF?logo=godotengine&logoColor=white)](https://godotengine.org)
+[![Discord](https://img.shields.io/discord/815617663605669898?logo=discord&logoColor=white&label=der%20'cord&color=5865F2)](https://discord.gg/s555fTCd47) [![Made with Godot](https://img.shields.io/badge/made_with-godot-478CBF?logo=godotengine&logoColor=white)](https://godotengine.org)
